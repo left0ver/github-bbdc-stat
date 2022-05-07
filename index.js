@@ -1,5 +1,5 @@
 const express = require('express');
-const { bbdcRouter } = require('./api/bbdc')
+const  bbdcRouter = require('./api/bbdc')
 const app = express();
 app.use(bbdcRouter)
 // if (process.env.NODE_ENV==='production') {
