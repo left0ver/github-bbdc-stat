@@ -2,9 +2,9 @@
   "name": "svg-demo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./api/index.js",
   "scripts": {
-    "start": "nodemon ./index.js"
+    "dev": "nodemon ./index.js"
   },
   "author": "",
   "license": "ISC",
