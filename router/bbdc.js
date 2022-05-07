@@ -2,7 +2,7 @@ const express = require('express');
 const { get } = require('axios');
 const baseURL = require('../baseURL')
 const COLORS = require('../theme')
-const {Error404}= require('../error_pages')
+const { Error404 } = require('../error_pages')
 const bbdcRouter = express.Router();
 
 function handleTheme(COLORS, theme) {
@@ -33,9 +33,8 @@ function render(theme, data) {
 `
 }
 
-
-bbdcRouter.get('/bbdc', async function (req, res) {
-    const { userId, theme, nickname} = req.query
+bbdcRouter.get('/bbdc',async (req, res) => {
+    const { userId, theme, nickname } = req.query
     // 如果没有userId，返回404
     if (userId === undefined) {
         return res.status(404).send(new Error404('没有userId').render())
@@ -48,7 +47,7 @@ bbdcRouter.get('/bbdc', async function (req, res) {
         params: { userId }
     })
     // 不正确的userId
-    if (data.result_code===20000) {
+    if (data.result_code === 20000) {
         return res.status(404).send(new Error404('userId不正确').render())
     }
     const { learnList, durationList } = data.data_body
@@ -58,6 +57,6 @@ bbdcRouter.get('/bbdc', async function (req, res) {
         totalReview += learnList[i].reviewNum
     }
     res.header("Content-Type", "image/svg+xml",)
-    res.send(render(handleTheme(COLORS, theme), { totalDuration, totalLearn, totalReview,nickname:nickname === undefined ?'leftover':nickname}))
-})
-module.exports = bbdcRouter
+    res.send(render(handleTheme(COLORS, theme), { totalDuration, totalLearn, totalReview, nickname: nickname === undefined ? 'leftover' : nickname }))
+}) 
+module.exports=bbdcRouter
