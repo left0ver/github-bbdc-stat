@@ -17,11 +17,12 @@ function render(theme, data) {
     <svg 
     version="1.1"
     baseProfile="full"
-    width="382" height="210"
+    width="382" height="190"
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 382 210"
+    viewBox="0 0 382 190"
+    transform="translate(6,6)"
     >
- <rect width="364" height="192" fill="${COLORS[theme].BACKGROUND}"  rx="10" ry="10" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+ <rect width="364" height="172" fill="${COLORS[theme].BACKGROUND}"  rx="10" ry="10" transform="matrix(1, 0, 0, 1, 0, 0)"/>
  <text x="97"  y="44"  fill="${COLORS[theme].TITLE}" font-size="19" font-family="SegoeUI, Segoe UI">${data.nickname}'s  bbdc  Stats</text>
  <text x="10"  y="90"  fill="${COLORS[theme].TEXT}"  font-size="15" font-family="SegoeUI, Segoe UI">Learn num</text>
  <text x="19"  y="130" fill="${COLORS[theme].TEXT}"  font-size="13" font-family="SegoeUI, Segoe UI">${data.totalLearn} words</text>
