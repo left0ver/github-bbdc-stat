@@ -2,7 +2,7 @@
   "name": "svg-demo",
   "version": "1.0.0",
   "description": "",
-  "main": "./api/index.js",
+  "main": "index.js",
   "scripts": {
     "dev": "nodemon ./index.js"
   },
