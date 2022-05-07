@@ -9,7 +9,8 @@
     "stat"
   ],
   "scripts": {
-    "dev": "nodemon ./index.js"
+    "dev": "nodemon ./index.js",
+    "tag": "git tag -a v%npm_package_version% && git push origin v%npm_package_version%"
   },
   "author": {
     "name": "left0ver",
