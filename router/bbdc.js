@@ -1,9 +1,9 @@
-// const express = require('express');
+const express = require('express');
 const { get } = require('axios');
 const baseURL = require('../baseURL')
 const COLORS = require('../theme')
 const { Error404 } = require('../error_pages')
-// const bbdcRouter = express.Router();
+const bbdcRouter = express.Router();
 
 function handleTheme(COLORS, theme) {
     // 没有主题或者主题不存在
@@ -33,7 +33,7 @@ function render(theme, data) {
 `
 }
 
-module.exports = async (req, res) => {
+bbdcRouter.get('/bbdc',async (req, res) => {
     const { userId, theme, nickname } = req.query
     // 如果没有userId，返回404
     if (userId === undefined) {
@@ -58,4 +58,5 @@ module.exports = async (req, res) => {
     }
     res.header("Content-Type", "image/svg+xml",)
     res.send(render(handleTheme(COLORS, theme), { totalDuration, totalLearn, totalReview, nickname: nickname === undefined ? 'leftover' : nickname }))
-}
+}) 
+module.exports=bbdcRouter
