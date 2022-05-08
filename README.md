@@ -18,12 +18,12 @@
 1. userId: 不背单词的ID （必填）
 2. nickname: 展示在卡片上的昵称,默认leftover （建议修改成自己的昵称）
 3. theme: dark | light （默认是dark）
+4. hide_border: true | false 是否隐藏边框（默认false）
 
 # todo
 
-1. 为卡片添加border
-2. 多集成一些主题
-3. 自定义card的大小
+1. 多集成一些主题
+2. 自定义card的大小
 
 # 求助
 现在的卡片上的昵称是要自己给定的，有没有大佬有方法获取到用户的不背单词app上的昵称。（非常感谢）

@@ -13,7 +13,10 @@ function handleTheme(COLORS, theme) {
     return theme
 }
 
-function render(theme, data) {
+function render(COLORS,theme, data) {
+    if ( data.hide_border==='true' ) {
+        COLORS[theme].BORDER=0
+    }
     return `
 <svg 
 version="1.1"
@@ -32,7 +35,7 @@ transform="translate(8,6)"
     <feComposite in="SourceGraphic"/>
     </filter>
 </defs>   
-<g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Card)">
+<g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Card)" stroke="${COLORS[theme].BORDER}">
 <rect width="364" height="172" fill="${COLORS[theme].BACKGROUND}"  rx="10" ry="10"/>
 </g>
  <text x="97"  y="44"  fill="${COLORS[theme].TITLE}" font-size="19" font-weight="600" font-family="SegoeUI, Segoe UI">${data.nickname}'s  bbdc  Stats</text>
@@ -47,7 +50,7 @@ transform="translate(8,6)"
 }
 
 bbdcRouter.get('/bbdc', async (req, res) => {
-    const { userId, theme, nickname } = req.query
+    const { userId, theme, nickname, hide_border } = req.query
     // 如果没有userId，返回404
     if (userId === undefined) {
         return res.status(400).send(new Error400('没有userId').render())
@@ -70,6 +73,6 @@ bbdcRouter.get('/bbdc', async (req, res) => {
         totalReview += learnList[i].reviewNum
     }
     res.header("Content-Type", "image/svg+xml",)
-    res.send(render(handleTheme(COLORS, theme), { totalDuration, totalLearn, totalReview, nickname: nickname === undefined ? 'leftover' : nickname }))
+    res.send(render(COLORS, handleTheme(COLORS, theme), { totalDuration, totalLearn, totalReview, nickname: nickname === undefined ? 'leftover' : nickname ,hide_border }))
 })
 module.exports = bbdcRouter
