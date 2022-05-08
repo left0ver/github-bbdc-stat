@@ -1,5 +1,6 @@
 const express = require('express');
 const { get } = require('axios');
+var cloneDeep = require('lodash.clonedeep');
 const baseURL = require('../baseURL')
 const COLORS = require('../theme')
 const { Error400 } = require('../error_pages')
@@ -13,10 +14,11 @@ function handleTheme(COLORS, theme) {
     return theme
 }
 
-function render(COLORS,theme, data) {
-    if ( data.hide_border==='true' ) {
-        COLORS[theme].BORDER=0
-    }
+function render(COLORS, theme, data) {
+    const renderColor = cloneDeep(COLORS)
+    renderColor[theme].BORDER = data.hide_border === 'true' ? 0 : COLORS[theme].BORDER
+    renderColor[theme].TITLE = data.title_color !== undefined ? data.title_color : COLORS[theme].TITLE
+    renderColor[theme].TEXT = data.text_color !== undefined ? data.text_color : COLORS[theme].TEXT
     return `
 <svg 
 version="1.1"
@@ -35,22 +37,22 @@ transform="translate(8,6)"
     <feComposite in="SourceGraphic"/>
     </filter>
 </defs>   
-<g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Card)" stroke="${COLORS[theme].BORDER}">
-<rect width="364" height="172" fill="${COLORS[theme].BACKGROUND}"  rx="10" ry="10"/>
+<g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Card)" stroke="${renderColor[theme].BORDER}">
+<rect width="364" height="172" fill="${renderColor[theme].BACKGROUND}"  rx="10" ry="10"/>
 </g>
- <text x="97"  y="44"  fill="${COLORS[theme].TITLE}" font-size="19" font-weight="600" font-family="SegoeUI, Segoe UI">${data.nickname}'s  bbdc  Stats</text>
- <text x="10"  y="90"  fill="${COLORS[theme].TEXT}"  font-size="15" font-weight="600" font-family="SegoeUI, Segoe UI">Learn num</text>
- <text x="19"  y="130" fill="${COLORS[theme].TEXT}"  font-size="13" font-weight="600" font-family="SegoeUI, Segoe UI">${data.totalLearn} words</text>
- <text x="120" y="90"  fill="${COLORS[theme].TEXT}"  font-size="15" font-weight="600" font-family="SegoeUI, Segoe UI">Review num</text>
- <text x="135" y="130" fill="${COLORS[theme].TEXT}"  font-size="13" font-weight="600" font-family="SegoeUI, Segoe UI">${data.totalReview} words</text>
- <text x="235" y="90"  fill="${COLORS[theme].TEXT}"  font-size="15" font-weight="600" font-family="SegoeUI, Segoe UI">Duration time</text>
- <text x="260" y="130" fill="${COLORS[theme].TEXT}"  font-size="13" font-weight="600" font-family="SegoeUI, Segoe UI">${data.totalDuration} mins</text>
+ <text x="97"  y="44"  fill="${renderColor[theme].TITLE}" font-size="19" font-weight="600" font-family="SegoeUI, Segoe UI">${data.nickname}'s  bbdc  Stats</text>
+ <text x="10"  y="90"  fill="${renderColor[theme].TEXT}"  font-size="15" font-weight="600" font-family="SegoeUI, Segoe UI">Learn num</text>
+ <text x="19"  y="130" fill="${renderColor[theme].TEXT}"  font-size="13" font-weight="600" font-family="SegoeUI, Segoe UI">${data.totalLearn} words</text>
+ <text x="120" y="90"  fill="${renderColor[theme].TEXT}"  font-size="15" font-weight="600" font-family="SegoeUI, Segoe UI">Review num</text>
+ <text x="135" y="130" fill="${renderColor[theme].TEXT}"  font-size="13" font-weight="600" font-family="SegoeUI, Segoe UI">${data.totalReview} words</text>
+ <text x="235" y="90"  fill="${renderColor[theme].TEXT}"  font-size="15" font-weight="600" font-family="SegoeUI, Segoe UI">Duration time</text>
+ <text x="260" y="130" fill="${renderColor[theme].TEXT}"  font-size="13" font-weight="600" font-family="SegoeUI, Segoe UI">${data.totalDuration} mins</text>
 </svg>
 `
 }
 
 bbdcRouter.get('/bbdc', async (req, res) => {
-    const { userId, theme, nickname, hide_border } = req.query
+    const { userId, theme, nickname, hide_border, title_color, text_color } = req.query
     // 如果没有userId，返回404
     if (userId === undefined) {
         return res.status(400).send(new Error400('没有userId').render())
@@ -73,6 +75,6 @@ bbdcRouter.get('/bbdc', async (req, res) => {
         totalReview += learnList[i].reviewNum
     }
     res.header("Content-Type", "image/svg+xml",)
-    res.send(render(COLORS, handleTheme(COLORS, theme), { totalDuration, totalLearn, totalReview, nickname: nickname === undefined ? 'leftover' : nickname ,hide_border }))
+    res.send(render(COLORS, handleTheme(COLORS, theme), { totalDuration, totalLearn, totalReview, nickname: nickname === undefined ? 'leftover' : nickname, hide_border, title_color, text_color }))
 })
 module.exports = bbdcRouter

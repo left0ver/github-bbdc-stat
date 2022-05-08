@@ -28,7 +28,8 @@
   "homepage": "https://github.com/left0ver/github-bbdc-stat#readme",
   "dependencies": {
     "axios": "^0.27.2",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "lodash.clonedeep": "^4.5.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
