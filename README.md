@@ -17,7 +17,7 @@
 
 1. userId: 不背单词的ID （必填）
 2. nickname: 展示在卡片上的昵称,默认leftover （建议修改成自己的昵称）
-3. theme: dark | light （默认是dark），（当前只有dark主题，后续会添加主题）
+3. theme: dark | light （默认是dark）
 
 # todo
 

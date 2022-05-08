@@ -10,6 +10,9 @@ const COLORS = {
         TEXT: '#2196F3'
     },
     light: {
+        BACKGROUND: '#FFF',
+        TITLE:'#2F80ED',
+        TEXT: '#212121'
 
     }
 }
