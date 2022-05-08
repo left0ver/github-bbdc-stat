@@ -24,6 +24,9 @@
 1. 为卡片添加border
 2. 多集成一些主题
 3. 自定义card的大小
+
+# 求助
+现在的卡片上的昵称是要自己给定的，有没有大佬有方法获取到用户的不背单词app上的昵称。（非常感谢）
 # Contribute
 
 如果您有什么建议、或者发现了bug，请提一个[issue](https://github.com/left0ver/github-bbdc-stat/issues)，也欢迎大家提[PR](https://github.com/left0ver/github-bbdc-stat/pulls)，一起把这个项目做好

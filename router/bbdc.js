@@ -34,7 +34,7 @@ function render(theme, data) {
 `
 }
 
-bbdcRouter.get('/bbdc',async (req, res) => {
+bbdcRouter.get('/bbdc', async (req, res) => {
     const { userId, theme, nickname } = req.query
     // 如果没有userId，返回404
     if (userId === undefined) {
@@ -59,5 +59,5 @@ bbdcRouter.get('/bbdc',async (req, res) => {
     }
     res.header("Content-Type", "image/svg+xml",)
     res.send(render(handleTheme(COLORS, theme), { totalDuration, totalLearn, totalReview, nickname: nickname === undefined ? 'leftover' : nickname }))
-}) 
-module.exports=bbdcRouter
+})
+module.exports = bbdcRouter
