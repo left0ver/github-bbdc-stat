@@ -10,26 +10,38 @@ function handleTheme(COLORS, theme) {
     if (theme === undefined || COLORS[theme] === undefined) {
         return 'default'
     }
+    return theme
 }
 
 function render(theme, data) {
     return `
-    <svg 
-    version="1.1"
-    baseProfile="full"
-    width="382" height="190"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 382 190"
-    transform="translate(6,6)"
-    >
- <rect width="364" height="172" fill="${COLORS[theme].BACKGROUND}"  rx="10" ry="10" transform="matrix(1, 0, 0, 1, 0, 0)"/>
- <text x="97"  y="44"  fill="${COLORS[theme].TITLE}" font-size="19" font-family="SegoeUI, Segoe UI">${data.nickname}'s  bbdc  Stats</text>
- <text x="10"  y="90"  fill="${COLORS[theme].TEXT}"  font-size="15" font-family="SegoeUI, Segoe UI">Learn num</text>
- <text x="19"  y="130" fill="${COLORS[theme].TEXT}"  font-size="13" font-family="SegoeUI, Segoe UI">${data.totalLearn} words</text>
- <text x="120" y="90"  fill="${COLORS[theme].TEXT}"  font-size="15" font-family="SegoeUI, Segoe UI">Review num</text>
- <text x="135" y="130" fill="${COLORS[theme].TEXT}"  font-size="13" font-family="SegoeUI, Segoe UI">${data.totalReview} words</text>
- <text x="235" y="90"  fill="${COLORS[theme].TEXT}"  font-size="15" font-family="SegoeUI, Segoe UI">Duration time</text>
- <text x="260" y="130" fill="${COLORS[theme].TEXT}"  font-size="13" font-family="SegoeUI, Segoe UI">${data.totalDuration} mins</text>
+<svg 
+version="1.1"
+baseProfile="full"
+width="382" height="190"
+xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 382 190"
+transform="translate(8,6)"
+>
+<defs>
+    <filter id="Card" x="0" y="0" width="382" height="190" filterUnits="userSpaceOnUse">
+    <feOffset dy="3" input="SourceAlpha"/>
+    <feGaussianBlur stdDeviation="3" result="blur"/>
+    <feFlood flood-opacity="0.161"/>
+    <feComposite operator="in" in2="blur"/>
+    <feComposite in="SourceGraphic"/>
+    </filter>
+</defs>   
+<g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Card)">
+<rect width="364" height="172" fill="${COLORS[theme].BACKGROUND}"  rx="10" ry="10"/>
+</g>
+ <text x="97"  y="44"  fill="${COLORS[theme].TITLE}" font-size="19" font-weight="600" font-family="SegoeUI, Segoe UI">${data.nickname}'s  bbdc  Stats</text>
+ <text x="10"  y="90"  fill="${COLORS[theme].TEXT}"  font-size="15" font-weight="600" font-family="SegoeUI, Segoe UI">Learn num</text>
+ <text x="19"  y="130" fill="${COLORS[theme].TEXT}"  font-size="13" font-weight="600" font-family="SegoeUI, Segoe UI">${data.totalLearn} words</text>
+ <text x="120" y="90"  fill="${COLORS[theme].TEXT}"  font-size="15" font-weight="600" font-family="SegoeUI, Segoe UI">Review num</text>
+ <text x="135" y="130" fill="${COLORS[theme].TEXT}"  font-size="13" font-weight="600" font-family="SegoeUI, Segoe UI">${data.totalReview} words</text>
+ <text x="235" y="90"  fill="${COLORS[theme].TEXT}"  font-size="15" font-weight="600" font-family="SegoeUI, Segoe UI">Duration time</text>
+ <text x="260" y="130" fill="${COLORS[theme].TEXT}"  font-size="13" font-weight="600" font-family="SegoeUI, Segoe UI">${data.totalDuration} mins</text>
 </svg>
 `
 }
