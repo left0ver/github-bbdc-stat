@@ -19,12 +19,13 @@
 2. nickname: 展示在卡片上的昵称,默认leftover （建议修改成自己的昵称）
 3. theme: dark | light （默认是dark）
 4. hide_border: true | false 是否隐藏边框（默认false）
+5. text_color （自定义文本颜色）
+6. title_color （自定义标题颜色）
 
 # todo
 
 1. 多集成一些主题
 2. 自定义card的大小
-3. 自定义title,内容的颜色
 
 # 求助
 现在的卡片上的昵称是要自己给定的，有没有大佬有方法获取到用户的不背单词app上的昵称。（非常感谢）
