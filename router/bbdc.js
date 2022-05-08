@@ -2,7 +2,7 @@ const express = require('express');
 const { get } = require('axios');
 const baseURL = require('../baseURL')
 const COLORS = require('../theme')
-const { Error404 } = require('../error_pages')
+const { Error400 } = require('../error_pages')
 const bbdcRouter = express.Router();
 
 function handleTheme(COLORS, theme) {
@@ -38,7 +38,7 @@ bbdcRouter.get('/bbdc', async (req, res) => {
     const { userId, theme, nickname } = req.query
     // 如果没有userId，返回404
     if (userId === undefined) {
-        return res.status(404).send(new Error404('没有userId').render())
+        return res.status(400).send(new Error400('没有userId').render())
     }
     let totalDuration = 0
     let totalLearn = 0
@@ -49,7 +49,7 @@ bbdcRouter.get('/bbdc', async (req, res) => {
     })
     // 不正确的userId
     if (data.result_code === 20000) {
-        return res.status(404).send(new Error404('userId不正确').render())
+        return res.status(400).send(new Error400('userId不正确').render())
     }
     const { learnList, durationList } = data.data_body
     for (let i = 0, len = learnList.length; i < len; i++) {
