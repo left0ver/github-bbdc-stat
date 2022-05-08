@@ -14,4 +14,4 @@ class Error404 extends Base_Error {
     status = 404
     message = 'Not Found'
 }
-module.exports = {Error404}
+module.exports = { Error404 }
