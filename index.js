@@ -6,6 +6,4 @@ app.use(bbdcRouter)
 app.use('/', (req, res) => {
     res.status(404).send(new Error404().render())
 })
-app.listen(process.env.PORT || 8000, () => {
-    console.log('srart');
-});
+app.listen(process.env.PORT || 8000);
