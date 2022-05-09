@@ -1,6 +1,6 @@
 {
   "name": "github-bbdc-stat",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "在你的GitHub的主页展示不背单词app的学习情况",
   "main": "index.js",
   "keywords": [
