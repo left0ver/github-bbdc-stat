@@ -19,8 +19,8 @@
 2. nickname: 展示在卡片上的昵称,默认leftover （建议修改成自己的昵称）
 3. theme: dark | light （默认是dark）
 4. hide_border: true | false 是否隐藏边框（默认false）
-5. text_color （自定义文本颜色）
-6. title_color （自定义标题颜色）
+5. text_color  :自定义文本颜色  十六进制色码（不加#） | 颜色单词（如yellow）
+6. title_color :自定义标题颜色  十六进制色码（不加#） | 颜色单词（如yellow）
 
 # todo
 

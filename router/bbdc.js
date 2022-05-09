@@ -1,6 +1,7 @@
 const express = require('express');
 const { get } = require('axios');
-var cloneDeep = require('lodash.clonedeep');
+const cloneDeep = require('lodash.clonedeep')
+const isHexColor = require('../utils/isHexColor')
 const baseURL = require('../baseURL')
 const COLORS = require('../theme')
 const { Error400 } = require('../error_pages')
@@ -15,10 +16,17 @@ function handleTheme(COLORS, theme) {
 }
 
 function render(COLORS, theme, data) {
+    function handleColorField(param, field) {
+        if (data[param] !== undefined) {
+            return isHexColor(data[param]) ? '#' + data[param] : data[param]
+        }
+        return COLORS[theme][field]
+    }
     const renderColor = cloneDeep(COLORS)
     renderColor[theme].BORDER = data.hide_border === 'true' ? 0 : COLORS[theme].BORDER
-    renderColor[theme].TITLE = data.title_color !== undefined ? data.title_color : COLORS[theme].TITLE
-    renderColor[theme].TEXT = data.text_color !== undefined ? data.text_color : COLORS[theme].TEXT
+    renderColor[theme].TITLE = handleColorField('title_color', 'TITLE')
+    renderColor[theme].TEXT = handleColorField('text_color', 'TEXT')
+
     return `
 <svg 
 version="1.1"
