@@ -13,6 +13,7 @@
 
 [![leftover's bbdc stats](https://stat.leftover.cn/bbdc?userId=47344140&nickname=leftover)](https://github.com/left0ver/github-bbdc-stat)
 
+> 如果显示的是0，那是因为我好久没背单词了
 # 可配置的参数
 
 1. userId: 不背单词的ID （必填）
