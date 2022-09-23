@@ -1,4 +1,9 @@
-如果觉得这个项目不错，那就给个star吧 （笔芯 🤞）
+如果觉得这个项目不错，那就给个star吧 💕
+<div align="center">
+  <img src="https://visitor-badge.glitch.me/badge?page_id=left0ver.github-bbdc-stat"/>
+  <img src="https://img.shields.io/github/package-json/v/left0ver/github-bbdc-stat"/>
+</div>
+
 # Usage
 
 1. 复制下面的代码，粘贴到你的GitHub主页的markdown文件中，修改userId和nickname,就是这么简单！
