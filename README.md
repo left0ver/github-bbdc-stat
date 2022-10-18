@@ -1,6 +1,6 @@
 
 <div align="center">
-  <img src="https://visitor-badge.glitch.me/badge?page_id=left0ver.github-bbdc-stat"/>
+  <img src="https://visitor.leftover.cn?id=left0ver.github-bbdc-stat"/>
   <img src="https://img.shields.io/github/package-json/v/left0ver/github-bbdc-stat"/>
 </div>
 
