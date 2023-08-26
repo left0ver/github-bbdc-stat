@@ -11,7 +11,7 @@
 1. 复制下面的代码，粘贴到你的GitHub主页的markdown文件中，修改userId和nickname,就是这么简单！
 2. userId是你的不背单词的ID,**查看方法：进入不背单词app首页，点击左上角的头像，再点击右上角的设置，往下拉到最底下即可看到你的ID(必填)**
 3. nickname是展示在卡片上的昵称，默认：leftover（建议修改成自己想要的昵称）
-
+4. msg是展示在卡片上的短消息，其实是用来占位，默认：(≧∇≦)ﾉ✧
 
 ```
 [![leftover's bbdc stats](https://stat.leftover.cn/bbdc?userId=47344140&nickname=leftover)](https://github.com/left0ver/github-bbdc-stat)
@@ -21,6 +21,7 @@
 [![leftover's bbdc stats](https://stat.leftover.cn/bbdc?userId=47344140&nickname=leftover)](https://github.com/left0ver/github-bbdc-stat)
 
 > 如果显示的是0，那是因为我好久没背单词了
+> 现在新增当天学习情况的展示，用以敦促自己背单词（逃）
 # 可配置的参数
 
 1. userId: 不背单词的ID （必填）
@@ -29,6 +30,7 @@
 4. hide_border: true | false 是否隐藏边框（默认false）
 5. text_color  :自定义文本颜色  十六进制色码（不加#） | 颜色单词（如yellow）
 6. title_color :自定义标题颜色  十六进制色码（不加#） | 颜色单词（如yellow）
+7. msg:短消息,默认(≧∇≦)ﾉ✧
 
 # todo
 
