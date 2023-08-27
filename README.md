@@ -18,7 +18,7 @@
 
 ```
 
-[![leftover's bbdc stats](https://ghbbdc.szsyzx.cn/bbdc?userId=47344140&nickname=leftover)](https://github.com/left0ver/github-bbdc-stat)
+[![leftover's bbdc stats](http://ghbbdc.szsyzx.cn/bbdc?userId=47344140&nickname=leftover)](https://github.com/left0ver/github-bbdc-stat)
 
 > 如果显示的是0，那是因为我好久没背单词了
 > 现在新增当天学习情况的展示，用以敦促自己背单词（逃）
