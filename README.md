@@ -1,9 +1,9 @@
 
 <div align="center">
-  <img src="https://visitor.leftover.cn?id=left0ver.github-bbdc-stat"/>
+  <h1>不背单词GitHub卡片</h1>
   <img src="https://img.shields.io/github/package-json/v/left0ver/github-bbdc-stat"/>
 </div>
-
+暂时部署到自己的服务器上，等待pr通过
 如果觉得这个项目不错，那就给个star吧 💕
 
 # Usage
@@ -14,11 +14,11 @@
 4. msg是展示在卡片上的短消息，其实是用来占位，默认：(≧∇≦)ﾉ✧
 
 ```
-[![leftover's bbdc stats](https://stat.leftover.cn/bbdc?userId=47344140&nickname=leftover)](https://github.com/left0ver/github-bbdc-stat)
+[![leftover's bbdc stats](http://ghbbdc.szsyzx.cn/bbdc?userId=47344140&nickname=leftover)](https://github.com/left0ver/github-bbdc-stat)
 
 ```
 
-[![leftover's bbdc stats](https://stat.leftover.cn/bbdc?userId=47344140&nickname=leftover)](https://github.com/left0ver/github-bbdc-stat)
+[![leftover's bbdc stats](https://ghbbdc.szsyzx.cn/bbdc?userId=47344140&nickname=leftover)](https://github.com/left0ver/github-bbdc-stat)
 
 > 如果显示的是0，那是因为我好久没背单词了
 > 现在新增当天学习情况的展示，用以敦促自己背单词（逃）
